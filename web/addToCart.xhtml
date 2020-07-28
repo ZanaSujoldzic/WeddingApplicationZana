@@ -20,7 +20,7 @@
         <ui:include src="WEB-INF/header.xhtml" /> 
 
         <h:form>
-            <h:dataTable var="product" value="#{productManagedBean.allProducts}">
+            <h:dataTable rendered="#{loginManagedBean.loggedIn}" var="product" value="#{productManagedBean.allProducts}">
                 
                 <h:column>
                     <f:facet name="header">Product</f:facet>

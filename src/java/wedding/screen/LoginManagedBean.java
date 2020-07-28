@@ -17,6 +17,9 @@ public class LoginManagedBean implements Serializable {
 
     @Inject
     private LoginFacadeLocal loginFacadeLocal;
+    
+    private boolean loggedIn;
+    private User user;
 
     private String username;
     private String password;
@@ -24,6 +27,16 @@ public class LoginManagedBean implements Serializable {
 
     public LoginManagedBean() {
     }
+
+    public boolean isLoggedIn() {
+        return loggedIn;
+    }
+
+
+    public void setLoggedIn(boolean isLoggedIn) {
+        this.loggedIn = isLoggedIn;
+    }
+    
 
     public String getUsername() {
         return username;
@@ -70,5 +83,12 @@ public class LoginManagedBean implements Serializable {
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         return "login";
 
+    }
+    
+    public String loginSession(){                
+        if(user.getUsername().equalsIgnoreCase(username) && user.getPassword().equals(password)) {
+            loggedIn = true;
+        }
+        return "index";
     }
 }
