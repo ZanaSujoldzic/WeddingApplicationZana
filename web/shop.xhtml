@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    <h:head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"></link>        
+        <style>        
+        h1{padding-top: 5px;
+              color: slategray;
+        }
+        .dresses-title{color: pink; text-align: center}
+        
+        .suit-title{color: black; text-align: center}
+        
+        card-img-wrapper{overflow: hidden; }
+        </style>
+    </h:head>
+    
+    <h:body>
+        <ui:include src="WEB-INF/header.xhtml" />        
+        <div class="shop-title mt-5">
+        <h1 style="text-align: center;" >Buy a dress your love to impress</h1>
+        <h4 class="dresses-title">Dresses</h4>
+        </div>        
+            
+        
+        <div class="container">
+            <div class="row">
+                <ui:repeat value="#{productManagedBean.allDresses}" var="dress">
+                    <div class="col-sm-3">
+                        <div class="card mb-4" style="border: activeborder">
+                            <h:graphicImage value="#{dress.photo}"></h:graphicImage><br/>                                                    
+                            
+                            <h2 style="text-align: center"><h:outputText value="#{product.name}" /></h2>
+                            Color: <h:outputText value="#{dress.color}" /><br/>
+                            Size: <h:outputText value="#{dress.size} " /><br/>
+                            Price: <h:outputText value="#{dress.price} " /> <br/>
+                        </div>
+                    </div>    
+                </ui:repeat>  
+            </div>
+        </div>
+        
+        
+        <h4 class="suit-title">Suits</h4>
+        
+        <div class="container">
+            <div class="row">
+                <ui:repeat value="#{productManagedBean.allSuits}" var="suit">
+                    <div class="col-sm-3">
+                        <div class="card mb-4" style="border: activeborder">
+                            <h:graphicImage value="#{suit.photo}"></h:graphicImage><br/>                                                    
+                            
+                            <h2 style="text-align: center"><h:outputText value="#{product.name}" /></h2>
+                            Color: <h:outputText value="#{suit.color}" /><br/>
+                            Size: <h:outputText value="#{suit.size} " /><br/>
+                            Price: <h:outputText value="#{suit.price} " /> <br/>
+                        </div>
+                    </div>    
+                </ui:repeat>  
+            </div>
+        </div>
+        
+        
+                
+                <div class="card text-center mt-5 mb-5" >
+                    <div class="card-header">
+                        Related search
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Order your dream dress or suit and get married now!</h5>
+                        <p class="card-text">You do not have to prove anything, but prove it to your friends.</p>
+                        <a href="#" class="btn btn-primary">Stop procrastinating!</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Now or never
+                    </div>
+                </div>  
+        <ui:include src="WEB-INF/footer.xhtml" />
+    </h:body>
+</html>
+

@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+    <h:head>
+        <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"></link>        
+        <title>Shops</title>
+        <style>
+            .ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all{width: 50px}
+
+            div {
+                padding-right: 30px;
+                padding-left: 80px;
+            }
+            .table{
+                padding-right: 30px;
+                padding-left: 80px;
+            }
+            h2{
+                text-align: center;
+                font-size: xx-large;
+                padding-top: 30px;
+                padding-bottom: 30px;
+                
+            }
+        </style>
+
+
+    </h:head>
+
+    <h:body>
+    <ui:include src="WEB-INF/header_admin.xhtml" /> 
+
+        <h2 >Shops</h2>
+        <br/>
+        <br/>
+
+        <form>
+            <h:link  value="Add new Shop" outcome="addShop">
+            </h:link>
+        </form>
+       
+        <br/>
+        <h:form  id="form">
+            <p:dataTable id ="table" value="#{shopsAdminManagedBean.loadAll()}" var="shop" >
+                <p:column  headerText="Name">
+                    <h:outputText value="#{shop.name}"/>
+                </p:column>
+
+                <p:column headerText="Surname">
+                    <h:outputText value="#{shop.address}"/>
+                </p:column>       
+
+                <p:column headerText="Username">
+                    <h:outputText value="#{shop.contact}"/>
+                </p:column> 
+
+                <p:column headerText="Password">
+                    <h:outputText value="#{shop.description}"/>
+                </p:column> 
+                 <p:column headerText="Service">
+                     <h:outputText value="#{shop.idService}"/>
+                </p:column> 
+
+                <p:column>
+                    <p:commandButton action="#{shopsAdminManagedBean.edit(shop)}" icon="fa fa-pencil">
+                        <f:ajax execute="@form" render="table"></f:ajax>
+                    </p:commandButton>
+                    <p:commandButton action="#{shopsAdminManagedBean.delete(shop)}" icon="fa fa-trash">
+                        <f:ajax execute="@form" render="table"></f:ajax>
+                    </p:commandButton>
+
+
+                </p:column>
+            </p:dataTable>>
+        </h:form>
+           <ui:include src="WEB-INF/footer.xhtml" />
+    </h:body>
+</html>
+
+

@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+    <h:head>
+        <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"></link>        
+        <title>Products</title>
+        <style>
+            .ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all{width: 50px}
+
+            div {
+                padding-right: 30px;
+                padding-left: 80px;
+            }
+            .table{
+                padding-right: 30px;
+                padding-left: 80px;
+            }
+            h2{
+                text-align: center;
+                font-size: xx-large;
+                padding-top: 30px;
+                padding-bottom: 30px;
+
+            }
+        </style>
+
+
+    </h:head>
+
+    <h:body>
+
+
+
+        <ui:include src="WEB-INF/header_admin.xhtml" /> 
+
+        <h2 >PRODUCTS</h2>
+        <br/>
+        <br/>
+
+        <div>
+
+            <h:form>
+                <h:panelGrid  columns="13" cellpadding="5">
+                    <h:outputText  value="Name"/>
+                    <p:inputText size="10" value="#{productAdminManagedBean.product.name}" required="true" requiredMessage="This field can not be empty"/>
+                    <h:outputText  value="Code"/>
+
+                    <p:inputText size="10" value="#{productAdminManagedBean.product.code}" required="true" requiredMessage="This field can not be empty"/>
+                    <h:outputText  value="Color"/>
+                    <p:inputText  size="10" value="#{productAdminManagedBean.product.color}" required="true" requiredMessage="This field can not be empty"/>
+                    <h:outputText  value="Size"/>
+                    <p:inputText size="10" value="#{productAdminManagedBean.product.size}" required="true" requiredMessage="This field can not be empty"/>
+                    <h:outputText  value="Price"/>
+                    <p:inputText  size="10" value="#{productAdminManagedBean.product.price}" required="true" requiredMessage="This field can not be empty"/>
+                    <h:outputText  value="Category:" />
+                    <h:selectOneMenu value = "#{productAdminManagedBean.product.idCategory}"> 
+                        <f:selectItem itemValue = "1" itemLabel = "Dress" /> 
+                        <f:selectItem itemValue = "2" itemLabel = "Suit" /> 
+                    </h:selectOneMenu> 
+                    <p:commandButton  value="Add" actionListener="#{productAdminManagedBean.add()}" process="@this">
+                        <f:ajax execute="@form" render="table"></f:ajax>
+                    </p:commandButton>
+                </h:panelGrid>
+            </h:form>
+
+
+        </div>
+        <br/>
+        <h:form  id="form">
+            <p:dataTable id="productTable" value="#{productPaginationManagedBean.products}" var="productItem" paginator="true" rows="10"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15">
+                <f:facet name="header">Product pagination</f:facet>
+                <p:column>
+                    <f:facet name="header">
+                        Name
+                    </f:facet>
+                    #{productItem.name}
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        Code
+                    </f:facet>
+                    #{productItem.code}
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        Color
+                    </f:facet>
+                    #{productItem.color}
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        Size
+                    </f:facet>
+                    #{productItem.size}
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        Price
+                    </f:facet>
+                    #{productItem.price}
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        Category
+                    </f:facet>
+                    #{productItem.idCategory}
+                </p:column>
+
+
+                <p:column>
+                    <p:commandButton action="#{productAdminManagedBean.edit(product)}" icon="fa fa-pencil">
+                        <f:ajax execute="@form" render="table"></f:ajax>
+                    </p:commandButton>
+                    <p:commandButton action="#{productAdminManagedBean.delete(product)}" icon="fa fa-trash">
+                        <f:ajax execute="@form" render="table"></f:ajax>
+                    </p:commandButton>
+
+
+                </p:column>
+            </p:dataTable>
+        </h:form>
+        <ui:include src="WEB-INF/footer.xhtml" />
+    </h:body>
+</html>
+

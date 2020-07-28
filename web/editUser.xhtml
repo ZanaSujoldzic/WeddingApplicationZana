@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"></link>        
+        <title>Edit User</title>
+        <style>
+            #edit{
+                padding-left: 70px;
+            }
+            h2{
+                text-align: left;
+                padding-left: 70px
+            }
+
+
+        </style>
+    </h:head>
+    <h:body>
+        <ui:include src="WEB-INF/header_admin.xhtml" /> 
+        <h2>EDIT</h2>
+        <br/>
+        <br/>
+        <form>
+            <div id="edit">
+                <div>
+                    <p:outputLabel value="Name"/>
+                    <div>
+                        <p:inputText id="name" value="#{userManagedBean.user.name}" required="true" requiredMessage="This field can not be empty"/>
+                    </div>
+                </div>
+
+                <div>
+                    <p:outputLabel value="Surname"/>
+                    <div>
+                        <p:inputText id="surname" value="#{userManagedBean.user.surname}"  required="true" requiredMessage="This field can not be empty"/>
+                    </div>
+                </div>
+
+                <div>
+                    <p:outputLabel value="Username"/>
+                    <div>
+                        <p:inputText id="username" value="#{userManagedBean.user.username}"  required="true" requiredMessage="This field can not be empty"/>
+                    </div>
+                </div>
+
+                <div>
+                    <p:outputLabel  value="Password"/>
+                    <div>
+                        <p:inputText id="size" value="#{userManagedBean.user.password}"  required="true" requiredMessage="This field can not be empty"/>
+                    </div>
+                </div>
+                <br/>
+                <div>
+                    <div>
+                        <p:outputLabel  value="Privilege" />
+                        <div>
+                            <h:selectOneMenu value = "#{userManagedBean.user.idPrivilege}"> 
+                                <f:selectItem itemValue = "1" itemLabel = "Admin" /> 
+                                <f:selectItem itemValue = "2" itemLabel = "User" /> 
+                            </h:selectOneMenu> 
+                        </div>
+                    </div>
+                    <br/>
+                    <div>
+                        <p:commandButton action="#{userManagedBean.edit()}" icon="pi pi-save" value="Save"/>   
+                    </div>
+                </div>
+            </div>
+        </form>
+        <ui:include src="WEB-INF/footer.xhtml" />
+    </h:body>
+</html>

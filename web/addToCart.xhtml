@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"></link>        
+        <style>        
+            h1{padding-top: 5px;
+               color: slategray;
+            }
+            h4{margin-top: 2;}
+            body{background-color: gainsboro;}        
+        </style>
+        <title>Add to cart</title>
+    </h:head>
+    <h:body>
+        <ui:include src="WEB-INF/header.xhtml" /> 
+
+        <h:form>
+            <h:dataTable var="product" value="#{productManagedBean.allProducts}">
+                
+                <h:column>
+                    <f:facet name="header">Product</f:facet>
+                        #{product.name}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Code</f:facet>
+                        #{product.code}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Color</f:facet>
+                        #{product.color}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Size</f:facet>
+                        #{product.size}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Price</f:facet>
+                        #{product.price}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Add</f:facet>
+                    <h:commandButton value="Add to cart" actionListener="#{productManagedBean.addToCart(product)}">
+                        <f:ajax execute="@form" render="shoppingCartTable"></f:ajax>
+                    </h:commandButton>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+        
+            <h:dataTable border="1" style="border-collapse: collapse" id="shoppingCartTable" var="shoppingCartItem" value="#{productManagedBean.shoppingCartItems}">
+                <h:column>
+                    <f:facet name="header">Product name</f:facet>
+                    #{shoppingCartItem.product.name}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Code</f:facet>
+                    #{shoppingCartItem.product.code}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Color</f:facet>
+                    #{shoppingCartItem.product.color}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Size</f:facet>
+                    #{shoppingCartItem.product.size}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Price</f:facet>
+                    #{shoppingCartItem.product.price}
+                </h:column>
+                 <h:column>
+                <f:facet name="header">Total price</f:facet>
+                #{shoppingCartItem.totalPrice}
+            </h:column>
+            </h:dataTable>
+
+        <h:link value="My shopping cart" outcome="shoppingCart"/>
+
+        <br/>
+        <ui:include src="WEB-INF/footer.xhtml" />
+    </h:body>
+</html>
+

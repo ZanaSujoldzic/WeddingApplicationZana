@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"></link>        
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+   
+   <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+   <script src="script.js"></script>
+   
+   <style>
+       
+  
+
+/* Custom CSS Styles */
+#cssmenu:after,
+#cssmenu ul:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+ /*Boja fonta u meniju i submeniju*/
+#cssmenu > ul > li > a {
+  color: slategray;
+}
+#cssmenu ul ul a {
+  color: slategray;
+}
+
+/*stil, razmak, veličina i poravnanje fonta*/
+#cssmenu a {
+  display: inline-block;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+  font-size: 14px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+#cssmenu ul {
+  background: white;
+  list-style: none;
+}
+
+#cssmenu > ul > li {
+  float: right;
+  padding: 0 10px;
+  position: relative;
+}
+
+#cssmenu > ul > li a {
+  line-height: 35px;
+}
+#cssmenu > ul > li a:hover {
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+#cssmenu .has-sub:hover ul {
+  display: block;
+}
+#cssmenu .has-sub a {
+  display: block;
+  position: relative;
+}
+#cssmenu .has-sub ul {
+  background: #f6f6f6;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  display: none;
+  padding: 10px 0;
+  position: absolute;
+  left: 50%;
+  top: 34px;
+  margin-left: -70px;
+  width: 140px;
+  z-index: 1;
+}
+#cssmenu .has-sub ul a {
+  line-height: 160%;
+  padding: 8px 0;
+}
+
+#button{
+   float:right;
+   font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+  font-size: 16px;
+    
+}
+ 
+       
+   </style>
+    </h:head>
+    <h:body>
+        <div class="container">
+        <div id="cssmenu">
+            
+              <form>
+                <h:commandButton id="button" style="float:right" value="LogOut" actionListener="#{loginManagedBean.logout()}"/>
+    
+            </form>
+<ul>
+  
+   <li class='last'><a href='http://localhost:8080/TestWeb/faces/adminProducts.xhtml'><span><strong>SHOP</strong></span></a></li>   
+   <li><a href='http://localhost:8080/TestWeb/faces/adminUsers.xhtml'><span><strong>USERS</strong></span></a></li>      
+   <li><a href='http://localhost:8080/TestWeb/faces/addShop.xhtml'><span><strong>SERVICES</strong></span></a></li>   
+   <li><a href='http://localhost:8080/TestWeb/faces/adminHome.xhtml'><span><strong>HOME</strong></span></a></li>
+      </ul>
+</div>
+        </div>
+        
+        
+    </h:body>
+</html>
+
