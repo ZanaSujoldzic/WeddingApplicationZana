@@ -73,58 +73,59 @@
 
         </div>
         <br/>
+            <h:form id="this">
+                <h:panelGrid  columns="13" cellpadding="5">
+                    <h:outputText  value="Name"/>
+                    <p:inputText  size="10" value="#{productAdminManagedBean.product.name}" required="true" requiredMessage="This field can not be empty"/>
+                    <h:outputText  value="Code"/>
+                    <p:inputText  size="10" value="#{productAdminManagedBean.product.code}" required="true" requiredMessage="This field can not be empty"/>
+                    <h:outputText  value="Color"/>
+                    <p:inputText id="color"  size="10" value="#{productAdminManagedBean.product.color}" required="true" requiredMessage="This field can not be empty"/>
+                    <h:message for="color" style="color: red"/>
+                    <h:outputText  value="Size"/>
+                    <p:inputText  size="10" value="#{productAdminManagedBean.product.size}" required="true" requiredMessage="This field can not be empty"/>
+                    <h:outputText  value="Price"/>
+                    <p:inputText   size="10" value="#{productAdminManagedBean.product.price}" required="true" requiredMessage="This field can not be empty"/>
+                    <h:commandButton  value="Add" action="#{productAdminManagedBean.add()}">
+                    </h:commandButton>
+
+                </h:panelGrid>
+            </h:form>
+
+        </div>
+        <br/>
         <h:form  id="form">
-            <p:dataTable id="productTable" value="#{productPaginationManagedBean.products}" var="productItem" paginator="true" rows="10"
-                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                         rowsPerPageTemplate="5,10,15">
-                <f:facet name="header">Product pagination</f:facet>
-                <p:column>
-                    <f:facet name="header">
-                        Name
-                    </f:facet>
-                    #{productItem.name}
-                </p:column>
-                <p:column>
-                    <f:facet name="header">
-                        Code
-                    </f:facet>
-                    #{productItem.code}
-                </p:column>
-                <p:column>
-                    <f:facet name="header">
-                        Color
-                    </f:facet>
-                    #{productItem.color}
-                </p:column>
-                <p:column>
-                    <f:facet name="header">
-                        Size
-                    </f:facet>
-                    #{productItem.size}
-                </p:column>
-                <p:column>
-                    <f:facet name="header">
-                        Price
-                    </f:facet>
-                    #{productItem.price}
-                </p:column>
-                <p:column>
-                    <f:facet name="header">
-                        Category
-                    </f:facet>
-                    #{productItem.idCategory}
+            <p:dataTable id ="table" value="#{productManagedBean.allProducts}" var="product" paginator="true" rows="10"
+                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                     rowsPerPageTemplate="5,10,15">
+                <p:column  headerText="Name">
+                    <h:outputText value="#{product.name}"/>
                 </p:column>
 
+                <p:column headerText="Code">
+                    <h:outputText value="#{product.code}"/>
+                </p:column>       
+
+                <p:column headerText="Color">
+                    <h:outputText value="#{product.color}"/>
+                </p:column> 
+
+                <p:column headerText="Size">
+                    <h:outputText value="#{product.size}"/>
+                </p:column> 
+
+                <p:column headerText="Price">
+                    <h:outputText value="#{product.price}"/>
+                </p:column>
 
                 <p:column>
-                    <p:commandButton action="#{productAdminManagedBean.edit(product)}" icon="fa fa-pencil">
+
+                    <h:commandLink action="#{productAdminManagedBean.edit(product)}" value="Edit" >
                         <f:ajax execute="@form" render="table"></f:ajax>
-                    </p:commandButton>
-                    <p:commandButton action="#{productAdminManagedBean.delete(product)}" icon="fa fa-trash">
+                    </h:commandLink>
+                    <h:commandLink style="float: right" action="#{productAdminManagedBean.delete(product)}" value="Delete" onclick="return confirm('Are you sure ?')">
                         <f:ajax execute="@form" render="table"></f:ajax>
-                    </p:commandButton>
-
-
+                    </h:commandLink>
                 </p:column>
             </p:dataTable>
         </h:form>

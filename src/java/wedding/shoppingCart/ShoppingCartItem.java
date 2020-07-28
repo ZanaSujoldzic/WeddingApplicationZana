@@ -10,15 +10,13 @@ import wedding.entity.Product;
 public class ShoppingCartItem implements Serializable {
     
     private Product product;
-    private Integer quantity;
     private List<ShoppingCartItem> shoppingCartItems;
 
     public ShoppingCartItem() {
     }
 
-    public ShoppingCartItem(Product product, Integer quantity) {
+    public ShoppingCartItem(Product product) {
         this.product = product;
-        this.quantity = quantity;
     }
 
 
@@ -31,13 +29,6 @@ public class ShoppingCartItem implements Serializable {
         this.product = product;
     }
 
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
     
     public BigDecimal getTotalPrice(){
        for(ShoppingCartItem sp : shoppingCartItems){

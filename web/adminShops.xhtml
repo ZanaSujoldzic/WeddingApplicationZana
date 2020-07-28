@@ -27,60 +27,60 @@
                 font-size: xx-large;
                 padding-top: 30px;
                 padding-bottom: 30px;
-                
+
             }
+          
         </style>
 
 
     </h:head>
 
     <h:body>
-    <ui:include src="WEB-INF/header_admin.xhtml" /> 
+    <ui:include src="WEB-INF/header_admin.xhtml" />   
+
+
 
         <h2 >Shops</h2>
         <br/>
         <br/>
-
-        <form>
+        
             <h:link  value="Add new Shop" outcome="addShop">
             </h:link>
-        </form>
-       
-        <br/>
-        <h:form  id="form">
-            <p:dataTable id ="table" value="#{shopsAdminManagedBean.loadAll()}" var="shop" >
+     <br/>
+     <br/>
+     <div>
+        <h:form>
+            <p:dataTable id ="table" value="#{shopsManagedBean.findAll()}" var="shop" paginator="true" rows="10"
+                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                     rowsPerPageTemplate="5,10,15">
                 <p:column  headerText="Name">
                     <h:outputText value="#{shop.name}"/>
                 </p:column>
 
-                <p:column headerText="Surname">
+                <p:column headerText="Code">
                     <h:outputText value="#{shop.address}"/>
                 </p:column>       
 
-                <p:column headerText="Username">
+                <p:column headerText="Color">
                     <h:outputText value="#{shop.contact}"/>
                 </p:column> 
 
-                <p:column headerText="Password">
+                <p:column headerText="Size">
                     <h:outputText value="#{shop.description}"/>
                 </p:column> 
-                 <p:column headerText="Service">
-                     <h:outputText value="#{shop.idService}"/>
-                </p:column> 
-
                 <p:column>
-                    <p:commandButton action="#{shopsAdminManagedBean.edit(shop)}" icon="fa fa-pencil">
-                        <f:ajax execute="@form" render="table"></f:ajax>
-                    </p:commandButton>
-                    <p:commandButton action="#{shopsAdminManagedBean.delete(shop)}" icon="fa fa-trash">
-                        <f:ajax execute="@form" render="table"></f:ajax>
-                    </p:commandButton>
 
-
+                    <h:commandLink action="#{shopsAdminManagedBean.edit(shop)}" value="Edit" >
+                        <f:ajax execute="@form" render="table"></f:ajax>
+                    </h:commandLink>
+                    <h:commandLink style="float: right" action="#{shopsAdminManagedBean.delete(shop)}" value="Delete" onclick="return confirm('Are you sure ?')">
+                        <f:ajax execute="@form" render="table"></f:ajax>
+                    </h:commandLink>
                 </p:column>
-            </p:dataTable>>
+            </p:dataTable>
         </h:form>
-           <ui:include src="WEB-INF/footer.xhtml" />
+         <ui:include src="WEB-INF/footer.xhtml" />
+     </div>
     </h:body>
 </html>
 

@@ -36,8 +36,8 @@ public class ShopsAdminManagedBean implements Serializable {
     
     
      public String add(){
-        this.shopsFacadeLocal.create(this.shop);
-        this.shop= new Shops();
+        shopsFacadeLocal.create(this.shop);
+        this.clear();
         return"adminShops";
     }
     
@@ -46,12 +46,23 @@ public class ShopsAdminManagedBean implements Serializable {
     }
     
     public String edit(Shops shop){
+        this.shop=shop;
         return "editShop";
     }
     
-    public String edit(){
-        shopsFacadeLocal.edit(shop);
+      public String edit() {
+        this.shopsFacadeLocal.edit(this.shop);
         return "adminShops";
+    }
+
+     public void clear() {
+        this.shop.setName(null);
+        this.shop.setAddress(null);
+        this.shop.setContact(null);
+        this.shop.setDescription(null);
+      
+      
+
     }
 }
 

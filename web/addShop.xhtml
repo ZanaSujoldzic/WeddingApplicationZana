@@ -22,57 +22,47 @@
     </h:head>
     <h:body>
         <ui:include src="WEB-INF/header_admin.xhtml" /> 
-        <h2>Add Shop</h2>
+        <h2>Add</h2>
         <br/>
         <br/>
-        <form>
-            <div id="edit">
+        <h:form>
+            <div id ="add">
                 <div>
                     <p:outputLabel value="Name"/>
                     <div>
-                        <p:inputText id="name" value="#{shopsAdminManagedBean.shop.name}" required="true" requiredMessage="This field can not be empty"/>
+                        <p:inputText id="name" value="#{shopsManagedBean.shop.name}" required="true" requiredMessage="This field can not be empty"/>
                     </div>
                 </div>
 
                 <div>
                     <p:outputLabel value="Address"/>
                     <div>
-                        <p:inputText id="address" value="#{shopsAdminManagedBean.shop.address}" required="true" requiredMessage="This field can not be empty"/>
+                        <p:inputText id="adress" value="#{shopsManagedBean.shop.address}" required="true" requiredMessage="This field can not be empty"/>
                     </div>
                 </div>
 
                 <div>
                     <p:outputLabel value="Contact"/>
                     <div>
-                        <p:inputText id="contact" value="#{shopsAdminManagedBean.shop.contact}" required="true" requiredMessage="This field can not be empty"/>
+                        <p:inputText id="contact" value="#{shopsManagedBean.shop.contact}" required="true" requiredMessage="This field can not be empty"/>
                     </div>
                 </div>
 
                 <div>
                     <p:outputLabel  value="Description"/>
                     <div>
-                        <p:inputTextarea value="#{shopsAdminManagedBean.shop.description}" rows="6" cols="33" required="true" requiredMessage="This field can not be empty"/>
+                        <p:inputText id="description" value="#{shopsManagedBean.shop.description}" required="true" requiredMessage="This field can not be empty"/>
                     </div>
                 </div>
+
                 <br/>
                 <div>
-                    <div>
-                        <p:outputLabel  value="Service" />
-                        <div>
-                            <h:selectOneMenu value = "#{shopsAdminManagedBean.shop.idService}"> 
-                                <f:selectItem itemValue = "1" itemLabel = "Catering" /> 
-                                <f:selectItem itemValue = "2" itemLabel = "Photo and Video"/> 
-                                <f:selectItem itemValue = "3" itemLabel = "Decoration"/> 
-                            </h:selectOneMenu> 
-                        </div>
-                    </div>
-                    <br/>
-                    <div>
-                        <p:commandButton actionListener="#{shopsAdminManagedBean.add()}" icon="pi pi-save" value="Save"/>   
-                    </div>
+               <br/>
+               <p:commandButton action="#{shopsAdminManagedBean.add()}" icon="pi pi-save" value="Save"/>   
                 </div>
             </div>
-        </form>
+        </h:form>
+    
         <ui:include src="WEB-INF/footer.xhtml" />
     </h:body>
 </html>

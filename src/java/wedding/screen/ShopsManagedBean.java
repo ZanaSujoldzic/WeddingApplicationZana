@@ -15,9 +15,19 @@ public class ShopsManagedBean implements Serializable{
     
     @Inject
     private ShopsFacadeLocal shopsFacadeLocal;
+    private Shops shop = new Shops();
 
     public ShopsManagedBean() {
     }
+
+    public Shops getShop() {
+        return shop;
+    }
+
+    public void setShop(Shops shop) {
+        this.shop = shop;
+    }
+    
 
     public ShopsFacadeLocal getShopsFacadeLocal() {
         return shopsFacadeLocal;

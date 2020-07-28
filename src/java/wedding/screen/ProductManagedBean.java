@@ -27,14 +27,8 @@ public class ProductManagedBean implements Serializable {
     }
 
     public void addToCart(Product product) {
-        for (ShoppingCartItem shoppingCartItem : shoppingCartItems) {
-            if (shoppingCartItem.getProduct().getId() == product.getId()) {
-                int newQuantity = shoppingCartItem.getQuantity() + quantity;
-                shoppingCartItem.setQuantity(newQuantity);
-                return;
-            }
-        }
-        ShoppingCartItem shoppingCartItem = new ShoppingCartItem(product, quantity);
+ 
+        ShoppingCartItem shoppingCartItem = new ShoppingCartItem(product);
         shoppingCartItems.add(shoppingCartItem);
     }
 

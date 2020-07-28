@@ -1,6 +1,7 @@
-
 package wedding.entity.facade;
 
+import java.io.UnsupportedEncodingException;
+import java.util.Base64;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -10,13 +11,12 @@ import javax.persistence.Query;
 import wedding.entity.Privilege;
 import wedding.entity.User;
 
-
 @Stateless
 public class RegisterFacade extends AbstractFacade<User> implements RegisterFacadeLocal {
 
     @Inject
     private PrivilegeFacadeLocal privilegeFacadeLocal;
-    
+
     public RegisterFacade() {
         super(User.class);
     }
@@ -28,9 +28,6 @@ public class RegisterFacade extends AbstractFacade<User> implements RegisterFaca
     protected EntityManager getEntityManager() {
         return entityManager;
     }
-
-    
-    
 
     @Override
     public boolean register(String name, String surname, String username, String password) {
@@ -45,7 +42,8 @@ public class RegisterFacade extends AbstractFacade<User> implements RegisterFaca
             user.setName(name);
             user.setSurname(surname);
             user.setUsername(username);
-            user.setPassword(password);
+            String hashPassword = encodePassword(password);
+            user.setPassword(hashPassword);
             Privilege privilege = privilegeFacadeLocal.find("user");
             user.setIdPrivilege(privilege);
             entityManager.persist(user);
@@ -54,6 +52,9 @@ public class RegisterFacade extends AbstractFacade<User> implements RegisterFaca
             throw new RuntimeException(e.getMessage());
 
         } 
+}
+    
+      public static String encodePassword(String password) throws UnsupportedEncodingException {
+        return Base64.getEncoder().encodeToString(password.getBytes("UTF-8"));
     }
-
 }
