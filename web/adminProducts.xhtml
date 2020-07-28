@@ -46,32 +46,6 @@
 
         <div>
 
-            <h:form>
-                <h:panelGrid  columns="13" cellpadding="5">
-                    <h:outputText  value="Name"/>
-                    <p:inputText size="10" value="#{productAdminManagedBean.product.name}" required="true" requiredMessage="This field can not be empty"/>
-                    <h:outputText  value="Code"/>
-
-                    <p:inputText size="10" value="#{productAdminManagedBean.product.code}" required="true" requiredMessage="This field can not be empty"/>
-                    <h:outputText  value="Color"/>
-                    <p:inputText  size="10" value="#{productAdminManagedBean.product.color}" required="true" requiredMessage="This field can not be empty"/>
-                    <h:outputText  value="Size"/>
-                    <p:inputText size="10" value="#{productAdminManagedBean.product.size}" required="true" requiredMessage="This field can not be empty"/>
-                    <h:outputText  value="Price"/>
-                    <p:inputText  size="10" value="#{productAdminManagedBean.product.price}" required="true" requiredMessage="This field can not be empty"/>
-                    <h:outputText  value="Category:" />
-                    <h:selectOneMenu value = "#{productAdminManagedBean.product.idCategory}"> 
-                        <f:selectItem itemValue = "1" itemLabel = "Dress" /> 
-                        <f:selectItem itemValue = "2" itemLabel = "Suit" /> 
-                    </h:selectOneMenu> 
-                    <p:commandButton  value="Add" actionListener="#{productAdminManagedBean.add()}" process="@this">
-                        <f:ajax execute="@form" render="table"></f:ajax>
-                    </p:commandButton>
-                </h:panelGrid>
-            </h:form>
-
-
-        </div>
         <br/>
             <h:form id="this">
                 <h:panelGrid  columns="13" cellpadding="5">
@@ -91,8 +65,8 @@
 
                 </h:panelGrid>
             </h:form>
-
         </div>
+
         <br/>
         <h:form  id="form">
             <p:dataTable id ="table" value="#{productManagedBean.allProducts}" var="product" paginator="true" rows="10"

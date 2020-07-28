@@ -56,10 +56,6 @@
                     <h:outputText value="Password"/>
                     <p:inputText size="10" value="#{userManagedBean.user.password}" required="true" requiredMessage="This field can not be empty"/>
                     <h:outputText value="Privilege:" />
-                    <h:selectOneMenu value = "#{userManagedBean.user.idPrivilege}"> 
-                        <f:selectItem itemValue ="1" itemLabel = "Admin" /> 
-                        <f:selectItem itemValue = "2" itemLabel = "User" /> 
-                    </h:selectOneMenu> 
                     <p:commandButton  value="Add" actionListener="#{userManagedBean.add()}" process="@this">
                         <f:ajax execute="@form" render="table"></f:ajax>
                     </p:commandButton>

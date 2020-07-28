@@ -33,21 +33,33 @@ public class UserManagedBean implements Serializable{
     }
     
     
-     public void add(){
-        userFacadeLocal.create(user);
-        this.user= new User();
+     public String add(){
+        userFacadeLocal.create(this.user);
+        this.clear();
+        return "adminUsers";
     }
     
     public void delete(User user){
-        userFacadeLocal.remove(user);
+       userFacadeLocal.remove(user);
     }
     
     public String edit(User user){
+        this.user = user;
         return "editUser";
     }
     
-    public String edit(){
-        userFacadeLocal.edit(user);
+      public String edit() {
+        this.userFacadeLocal.edit(this.user);
         return "adminUsers";
+    }
+
+     public void clear() {
+        this.user.setName(null);
+        this.user.setSurname(null);
+        this.user.setUsername(null);
+        this.user.setPassword(null);
+      
+      
+
     }
 }
