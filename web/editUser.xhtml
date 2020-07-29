@@ -20,12 +20,12 @@
 
         </style>
     </h:head>
-    <h:body rendered="#{loginManagedBean.loggedIn}">
+    <h:body>
         <ui:include src="WEB-INF/header_admin.xhtml"/> 
         <h2>EDIT</h2>
         <br/>
         <br/>
-        <form>
+        <h:form>
             <div id="edit">
                 <div>
                     <p:outputLabel value="Name"/>
@@ -71,7 +71,7 @@
                     </div>
                 </div>
             </div>
-        </form>
+        </h:form>
         <ui:include src="WEB-INF/footer.xhtml" />
     </h:body>
 </html>

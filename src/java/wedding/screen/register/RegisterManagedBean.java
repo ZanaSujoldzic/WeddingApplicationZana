@@ -4,6 +4,8 @@ import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import wedding.entity.Privilege;
+import wedding.entity.facade.PrivilegeFacadeLocal;
 import wedding.entity.facade.RegisterFacadeLocal;
 
 @Named
@@ -12,6 +14,9 @@ public class RegisterManagedBean implements Serializable {
 
     @Inject
     private RegisterFacadeLocal registerFacadeLocal;
+   
+    @Inject
+    private PrivilegeFacadeLocal privilegeFacadeLocal;
 
     private String name;
     private String surname;
@@ -52,6 +57,8 @@ public class RegisterManagedBean implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    
 
     public String register() {
         boolean userCreated = registerFacadeLocal.register(name, surname, username, password);

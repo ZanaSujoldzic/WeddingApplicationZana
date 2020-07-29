@@ -1,4 +1,3 @@
-
 package wedding.screen.admin;
 
 import java.io.Serializable;

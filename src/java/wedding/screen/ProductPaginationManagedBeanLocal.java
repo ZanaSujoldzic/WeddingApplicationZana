@@ -1,4 +1,3 @@
-
 package wedding.screen;
 
 import javax.ejb.Local;

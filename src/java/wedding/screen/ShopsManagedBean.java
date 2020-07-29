@@ -1,4 +1,3 @@
-
 package wedding.screen;
 
 import java.io.Serializable;

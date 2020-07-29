@@ -1,4 +1,3 @@
-
 package wedding.screen;
 
 import java.io.Serializable;
@@ -15,7 +14,6 @@ import wedding.shoppingCart.ShoppingCartItem;
 
 @Named
 @SessionScoped
-
 public class FinalPurchaseManagedBean implements Serializable {
     
  @Inject

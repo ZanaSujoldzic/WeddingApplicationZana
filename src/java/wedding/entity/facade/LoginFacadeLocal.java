@@ -1,4 +1,3 @@
-
 package wedding.entity.facade;
 
 import javax.ejb.Local;

@@ -1,9 +1,9 @@
-
 package wedding.entity.facade;
 
 import javax.ejb.Local;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
+import wedding.entity.Privilege;
 
 
 @Local

@@ -32,8 +32,6 @@ public class PrivilegeFacade extends AbstractFacade<Privilege> implements Privil
         Privilege privilege = (Privilege) query.setParameter("name", name).getSingleResult();
         System.out.println(privilege);
         return privilege;
-        
-        
     }
     
     

@@ -1,4 +1,3 @@
-
 package wedding.shoppingCart;
 
 import java.io.Serializable;
@@ -19,8 +18,6 @@ public class ShoppingCartItem implements Serializable {
         this.product = product;
     }
 
-
-
     public Product getProduct() {
         return product;
     }
@@ -31,10 +28,10 @@ public class ShoppingCartItem implements Serializable {
 
     
     public BigDecimal getTotalPrice(){
+        BigDecimal totalPrice = new BigDecimal(0);
        for(ShoppingCartItem sp : shoppingCartItems){
-           BigDecimal totalPrice = sp.getProduct().getPrice();
-           return totalPrice;
+           totalPrice.add(sp.getProduct().getPrice());
        } 
-        return null;
+       return totalPrice;
     }
 }

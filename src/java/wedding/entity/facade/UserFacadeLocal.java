@@ -1,4 +1,3 @@
-
 package wedding.entity.facade;
 
 import java.util.List;

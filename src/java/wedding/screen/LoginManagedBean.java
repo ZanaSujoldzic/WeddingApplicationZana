@@ -85,9 +85,14 @@ public class LoginManagedBean implements Serializable {
 
     }
     
-    public String loginSession(){                
-        if(user.getUsername().equalsIgnoreCase(username) && user.getPassword().equals(password)) {
+    public String loginSession(){    
+        Privilege privilege = user.getIdPrivilege();
+        if(privilege.getName().equalsIgnoreCase("admin")) {
             loggedIn = true;
+            return "adminHome";
+        }else if (privilege.getName().equalsIgnoreCase("user")){
+            loggedIn = true;
+            return "home";
         }
         return "index";
     }
