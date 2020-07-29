@@ -101,7 +101,7 @@ public class Service implements Serializable {
 
     @Override
     public String toString() {
-        return "wedding.entity.Service[ id=" + id + " ]";
+        return name;
     }
     
 }

@@ -19,19 +19,19 @@
             
             <h:panelGrid columns="3">
                 <h:outputLabel value="Name:"/>
-                <h:inputText id="name" value="#{registerManagedBean.name}" required="true" validatorMessage="This field cannot be empty."/>
+                <h:inputText id="name" value="#{registerManagedBean.name}" required="true" requiredMessage="This field cannot be empty."/>
                 <h:message for="name" style="color: red"/>
 
                 <h:outputLabel value="Surname:"/>
-                <h:inputText id="surname" value="#{registerManagedBean.surname}" required="true" validatorMessage="This field cannot be empty."/>
+                <h:inputText id="surname" value="#{registerManagedBean.surname}" required="true" requiredMessage="This field cannot be empty."/>
                 <h:message for="surname" style="color: red"/>
 
                 <h:outputLabel value="Username:"/>
-                <h:inputText id="username" value="#{registerManagedBean.username}" required="true" validatorMessage="This field cannot be empty."/>
+                <h:inputText id="username" value="#{registerManagedBean.username}" required="true" requiredMessage="This field cannot be empty."/>
                 <h:message for="username" style="color: red"/>
 
                 <h:outputLabel value="Password:"/>
-                <h:inputSecret id="password" value="#{registerManagedBean.password}" required="true" validatorMessage="This field cannot be empty."/>
+                <h:inputSecret id="password" value="#{registerManagedBean.password}" required="true" requiredMessage="This field cannot be empty."/>
                 <h:message for="password" style="color: red"/>
                 
                 <h:commandButton value="Register" action="#{registerManagedBean.register()}"/>

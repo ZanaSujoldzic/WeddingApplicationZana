@@ -192,7 +192,7 @@ public class Product implements Serializable {
 
     @Override
     public String toString() {
-        return "wedding.entity.Product[ id=" + id + " ]";
+        return name;
     }
 
 }

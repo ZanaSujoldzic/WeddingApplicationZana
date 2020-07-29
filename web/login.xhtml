@@ -19,11 +19,11 @@
             <h:panelGrid columns="3">
             
             <h:outputLabel value="Username: "/>
-            <h:inputText id="username" value="#{loginManagedBean.username}" required="true" validatorMessage="Please fill out the field!"/>
-            <h:message for="username" style="color: red"></h:message>
+            <h:inputText id="username" value="#{loginManagedBean.username}" required="true" requiredMessage="Please fill out the field!"/>
+            <h:message for="username" style="color: red"/>
             
              <h:outputLabel value="Password: "/>
-             <h:inputSecret id="password" value="#{loginManagedBean.password}" required="true" validatorMessage="Please fill out the field!"/>
+             <h:inputSecret id="password" value="#{loginManagedBean.password}" required="true" requiredMessage="Please fill out the field!"/>
              <h:message for="password" style=" color: red"></h:message>
        
              <h:commandButton value="Log In" action="#{loginManagedBean.login()}" />

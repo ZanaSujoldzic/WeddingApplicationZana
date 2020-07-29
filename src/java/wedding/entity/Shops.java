@@ -174,7 +174,7 @@ public class Shops implements Serializable {
 
     @Override
     public String toString() {
-        return "wedding.entity.Shops[ id=" + id + " ]";
+        return name;
     }
 
 }

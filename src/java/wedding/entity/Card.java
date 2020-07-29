@@ -113,7 +113,7 @@ public class Card implements Serializable {
 
     @Override
     public String toString() {
-        return "wedding.entity.Card[ id=" + id + " ]";
+        return id.toString();
     }
     
 }

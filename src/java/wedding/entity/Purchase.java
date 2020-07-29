@@ -169,7 +169,7 @@ public class Purchase implements Serializable {
 
     @Override
     public String toString() {
-        return "wedding.entity.Purchase[ id=" + id + " ]";
+        return name;
     }
     
 }
