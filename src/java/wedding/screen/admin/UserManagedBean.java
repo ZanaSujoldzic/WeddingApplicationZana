@@ -14,7 +14,7 @@ public class UserManagedBean implements Serializable{
     
     @Inject
     private UserFacadeLocal userFacadeLocal;
-    private User user= new User();
+    private User user = new User();
 
     public UserManagedBean() {
     }
@@ -49,6 +49,7 @@ public class UserManagedBean implements Serializable{
     
       public String edit() {
         this.userFacadeLocal.edit(this.user);
+        this.user = new User();
         return "adminUsers";
     }
 
@@ -57,8 +58,7 @@ public class UserManagedBean implements Serializable{
         this.user.setSurname(null);
         this.user.setUsername(null);
         this.user.setPassword(null);
-      
-      
+       
 
     }
 }

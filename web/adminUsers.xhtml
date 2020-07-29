@@ -40,7 +40,7 @@
 
         <ui:include src="WEB-INF/header_admin.xhtml" /> 
 
-        <h2 >USERS</h2>
+        <h2>USERS</h2>
         <br/>
         <br/>
 
@@ -88,14 +88,12 @@
                 </p:column> 
 
                 <p:column>
-                    <p:commandButton action="#{userManagedBean.edit(user)}" icon="fa fa-pencil">
+                    <h:commandLink action="#{userManagedBean.edit(user)}" value="Edit">
                         <f:ajax execute="@form" render="table"></f:ajax>
-                    </p:commandButton>
-                    <p:commandButton action="#{userManagedBean.delete(user)}" icon="fa fa-trash">
+                    </h:commandLink>
+                    <h:commandLink action="#{userManagedBean.delete(user)}" value="Delete" style="float: right">
                         <f:ajax execute="@form" render="table"></f:ajax>
-                    </p:commandButton>
-
-
+                    </h:commandLink>
                 </p:column>
             </p:dataTable>>
         </h:form>

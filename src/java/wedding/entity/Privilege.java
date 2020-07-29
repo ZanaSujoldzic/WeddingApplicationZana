@@ -101,7 +101,7 @@ public class Privilege implements Serializable {
 
     @Override
     public String toString() {
-        return "wedding.entity.Privilege[ id=" + id + " ]";
+        return name;
     }
     
         public void addUser(User user) {  
