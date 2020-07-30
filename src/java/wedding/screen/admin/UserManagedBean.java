@@ -32,8 +32,8 @@ public class UserManagedBean implements Serializable{
     }
     
     
-     public String add(){
-        userFacadeLocal.create(this.user);
+     public String add(User user){
+        this.userFacadeLocal.create(this.user);
         this.clear();
         return "adminUsers";
     }
@@ -49,7 +49,6 @@ public class UserManagedBean implements Serializable{
     
       public String edit() {
         this.userFacadeLocal.edit(this.user);
-        this.user = new User();
         return "adminUsers";
     }
 

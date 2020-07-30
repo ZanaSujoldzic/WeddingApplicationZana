@@ -57,7 +57,7 @@
                     <p:inputText  size="10" value="#{productAdminManagedBean.product.size}" required="true" requiredMessage="This field can not be empty"/>
                     <h:outputText  value="Price"/>
                     <p:inputText   size="10" value="#{productAdminManagedBean.product.price}" required="true" requiredMessage="This field can not be empty"/>
-                    <h:commandButton  value="Add" action="#{productAdminManagedBean.add()}">
+                    <h:commandButton  value="Add" action="#{productAdminManagedBean.add(product)}">
                     </h:commandButton>
 
                 </h:panelGrid>

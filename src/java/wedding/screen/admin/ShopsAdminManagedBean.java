@@ -34,7 +34,7 @@ public class ShopsAdminManagedBean implements Serializable {
     }
     
     
-     public String add(){
+     public String add(Shops shop){
         shopsFacadeLocal.create(this.shop);
         this.clear();
         return"adminShops";

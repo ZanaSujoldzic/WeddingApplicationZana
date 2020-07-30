@@ -48,18 +48,18 @@
             <h:form>
                 <h:panelGrid  columns="13" cellpadding="5">
                     <h:outputText  value="Name"/>
-                    <p:inputText id="name" size="10" value="#{usersManagedBean.user.name}" required="true" requiredMessage="This field can not be empty"/>
+                    <p:inputText id="name" size="10" value="#{userManagedBean.user.name}" required="true" requiredMessage="This field can not be empty"/>
                     <h:message for="name" style="color: red"/>
                     <h:outputText  value="Surname"/>
-                    <p:inputText id="surname" size="10" value="#{usersManagedBean.user.surname}" required="true" requiredMessage="This field can not be empty"/>
+                    <p:inputText id="surname" size="10" value="#{userManagedBean.user.surname}" required="true" requiredMessage="This field can not be empty"/>
                     <h:message for="surname" style="color: red"/>
                     <h:outputText  value="Username"/>
-                    <p:inputText id="username"  size="10" value="#{usersManagedBean.user.username}" required="true" requiredMessage="This field can not be empty"/>
+                    <p:inputText id="username"  size="10" value="#{userManagedBean.user.username}" required="true" requiredMessage="This field can not be empty"/>
                     <h:message for="username" style="color: red"/>
                     <h:outputText  value="Password"/>
-                    <p:inputText id="password" size="10" value="#{usersManagedBean.user.password}" required="true" requiredMessage="This field can not be empty"/>
+                    <p:inputText id="password" size="10" value="#{userManagedBean.user.password}" required="true" requiredMessage="This field can not be empty"/>
                     <h:message for="password" style="color: red"/>
-                    <h:commandButton  value="Add" action="#{usersManagedBean.add()}">
+                    <h:commandButton  value="Add" action="#{userManagedBean.add(user)}">
                     </h:commandButton>
 
                 </h:panelGrid>

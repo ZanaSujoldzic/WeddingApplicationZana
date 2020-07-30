@@ -41,7 +41,7 @@ public class ProductAdminManagedBean implements Serializable {
         return shoppingCartItems;
     }
     
-     public String add() {
+     public String add(Product product) {
         this.productFacadeLocal.create(this.product);
         this.clear();
         return "adminProducts";
@@ -59,7 +59,6 @@ public class ProductAdminManagedBean implements Serializable {
 
     public String edit() {
         this.productFacadeLocal.edit(this.product);
-        this.product = new Product();
         return "adminProducts";
     }
 
