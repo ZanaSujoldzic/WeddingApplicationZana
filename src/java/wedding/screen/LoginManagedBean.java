@@ -64,6 +64,7 @@ public class LoginManagedBean implements Serializable {
 
     public String login() {
         User user = loginFacadeLocal.login(username, password);
+        loggedIn = true;
         Privilege privilege = user.getIdPrivilege();
         if (user == null) {
             message = "User doesn't exist";
@@ -85,15 +86,4 @@ public class LoginManagedBean implements Serializable {
 
     }
     
-    public String loginSession(){    
-        Privilege privilege = user.getIdPrivilege();
-        if(privilege.getName().equalsIgnoreCase("admin")) {
-            loggedIn = true;
-            return "adminHome";
-        }else if (privilege.getName().equalsIgnoreCase("user")){
-            loggedIn = true;
-            return "home";
-        }
-        return "index";
-    }
 }

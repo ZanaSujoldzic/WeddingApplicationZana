@@ -15,7 +15,7 @@
         </style>
     </h:head>
     
-    <h:body>
+    <h:body rendered="#{loginManagedBean.loggedIn}">
         <ui:include src="WEB-INF/header_login.xhtml" /> 
         
         <div class="team-title mt-5">

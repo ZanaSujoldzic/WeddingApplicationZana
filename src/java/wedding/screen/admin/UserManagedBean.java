@@ -2,14 +2,14 @@ package wedding.screen.admin;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.faces.view.ViewScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import wedding.entity.User;
 import wedding.entity.facade.UserFacadeLocal;
 
 @Named
-@ViewScoped
+@SessionScoped
 public class UserManagedBean implements Serializable{
     
     @Inject

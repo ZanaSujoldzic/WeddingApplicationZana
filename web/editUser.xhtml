@@ -20,55 +20,49 @@
 
         </style>
     </h:head>
-    <h:body>
+    <h:body rendered="#{loginManagedBean.loggedIn}">
         <ui:include src="WEB-INF/header_admin.xhtml"/> 
         <h2>EDIT</h2>
         <br/>
         <br/>
-        <h:form>
-            <div id="edit">
+           <h:form>
+            <div>
                 <div>
                     <p:outputLabel value="Name"/>
                     <div>
-                        <p:inputText id="name" value="#{userManagedBean.user.name}" required="true" requiredMessage="This field can not be empty"/>
+                    <p:inputText id="name" value="#{usersManagedBean.user.name}" required="true" requiredMessage="This field can not be empty"/>
+                    <h:message for="name" style="color: red"/>
                     </div>
                 </div>
 
                 <div>
                     <p:outputLabel value="Surname"/>
                     <div>
-                        <p:inputText id="surname" value="#{userManagedBean.user.surname}"  required="true" requiredMessage="This field can not be empty"/>
+                        <p:inputText id="surname" value="#{usersManagedBean.user.surname}" required="true" requiredMessage="This field can not be empty"/>
+                    <h:message for="surname" style="color: red"/>
                     </div>
                 </div>
 
                 <div>
                     <p:outputLabel value="Username"/>
                     <div>
-                        <p:inputText id="username" value="#{userManagedBean.user.username}"  required="true" requiredMessage="This field can not be empty"/>
+                        <p:inputText id="username" value="#{usersManagedBean.user.username}" required="true" requiredMessage="This field can not be empty"/>
+                    <h:message for="username" style="color: red"/>
                     </div>
                 </div>
 
                 <div>
                     <p:outputLabel  value="Password"/>
                     <div>
-                        <p:inputText id="size" value="#{userManagedBean.user.password}"  required="true" requiredMessage="This field can not be empty"/>
+                        <p:inputText id="password" value="#{usersManagedBean.user.password}" required="true" requiredMessage="This field can not be empty"/>
+                    <h:message for="password" style="color: red"/>
                     </div>
                 </div>
+
                 <br/>
                 <div>
-                    <div>
-                        <p:outputLabel  value="Privilege" />
-                        <div>
-                            <h:selectOneMenu value = "#{userManagedBean.user.idPrivilege}"> 
-                                <f:selectItem itemValue = "1" itemLabel = "Admin" /> 
-                                <f:selectItem itemValue = "2" itemLabel = "User" /> 
-                            </h:selectOneMenu> 
-                        </div>
-                    </div>
-                    <br/>
-                    <div>
-                        <h:commandButton action="#{userManagedBean.edit()}" value="Save"></h:commandButton>   
-                    </div>
+               <br/>
+               <p:commandButton action="#{usersManagedBean.edit()}" icon="pi pi-save" value="Save"/>   
                 </div>
             </div>
         </h:form>
