@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    <h:head>Register service</h:head> 
+ <h:body rendered="#{loginManagedBean.loggedIn}">
+        <ui:include src="WEB-INF/header_login.xhtml" />        
+        
+        <div class="container mt-5">
+        <h:form>
+            
+            <h:panelGrid columns="3">
+                <h:outputLabel value="Name:"/>
+                <h:inputText id="name" value="#{shopsManagedBean.shop.name}" required="true" requiredMessage="This field cannot be empty."/>
+                <h:message for="name" style="color: red"/>
+
+                <h:outputLabel value="Address:"/>
+                <h:inputText id="address" value="#{shopsManagedBean.shop.address}" required="true" requiredMessage="This field cannot be empty."/>
+                <h:message for="address" style="color: red"/>
+
+                <h:outputLabel value="Contact:"/>
+                <h:inputText id="contact" value="#{shopsManagedBean.shop.contact}" required="true" requiredMessage="This field cannot be empty."/>
+                <h:message for="contact" style="color: red"/>
+
+                <h:outputLabel value="Description:"/>
+                <h:inputTextarea id="descripiton" value="#{shopsManagedBean.shop.description}" rows="6" cols="33" required="true" requiredMessage="This field cannot be empty."/>
+                <h:message for="descripiton" style="color: red"/>
+                
+                <h:commandButton value="Register Service" action="#{shopsManagedBean.add(shop)}"/>
+
+            </h:panelGrid>
+            
+        </h:form>
+                </div>
+                
+                <div class="card text-center mt-5 mb-5" >
+                    <div class="card-header">
+                        Related search
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Order your dream dress or suit and get married now!</h5>
+                        <p class="card-text">You do not have to prove anything, but prove it to your friends.</p>
+                        <a href="#" class="btn btn-primary">Stop procrastinating!</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Now or never
+                    </div>
+                </div>          
+           
+        <ui:include src="WEB-INF/footer.xhtml" />
+    </h:body>
+</html>
+
